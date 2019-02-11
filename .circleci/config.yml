@@ -2,7 +2,17 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/python:3.6.4
     steps:
       - checkout
-      - run: python3 ../PIBotTests.py
+      - restore_cache:  # ensure this step occurs *before* installing dependencies
+          key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+      - run:
+		command: |
+			sudo pip install pipenv
+			pipenv install
+      - save_cache:
+          key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+      - run:
+		command: |
+			pipenv run python PIBotTests.py
