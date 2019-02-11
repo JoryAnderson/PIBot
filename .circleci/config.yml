@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command:
+          command: |
 echo "[PIBot]
 client_id=$client_id
 client_secret=$client_secret
