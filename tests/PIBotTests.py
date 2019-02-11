@@ -13,6 +13,11 @@ class TestRedditAndOS(unittest.TestCase):
 
 	def setUp(self):
 		self.reddit = PIBot.bot_login()
+		self.local_cache = PIBot.create_local_cache("id_blacklist.txt")
+
+	def tearDown(self):
+		self.local_cache.close()
+		os.remove("id_blacklist.txt")
 
 	def test_login(self):
 		self.assertIsNotNone(self.reddit)
@@ -21,10 +26,7 @@ class TestRedditAndOS(unittest.TestCase):
 	def test_writeable_cache(self):
 		self.assertTrue(os.access("./", os.R_OK))
 		self.assertTrue(os.access("./", os.W_OK))
-
-		self.comment_blacklist = PIBot.create_local_cache("id_blacklist.txt")
 		self.assertTrue(os.access("id_blacklist.txt", os.W_OK))
-		os.remove("id_blacklist.txt")
 
 
 class TestMatching(unittest.TestCase):
@@ -38,6 +40,7 @@ class TestMatching(unittest.TestCase):
 		self.phone_pattern = r"(?<!\w)[1 ]?[- ]?(?!800)\(?\d{3}\)?\s?[- ]?\d{3}[- ]?\d{3,4}(?!\d+?)"
 
 	def tearDown(self):
+		self.local_cache.close()
 		os.remove("id_blacklist.txt")
 
 	def test_phone_match(self):
