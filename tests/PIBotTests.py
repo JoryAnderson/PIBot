@@ -1,8 +1,3 @@
-'''
-TODO: Here's a list of unit tests to create in order to prevent regression (use test subreddit):
-Also: Connect to GitHub CI/CD.
-'''
-
 from src import PIBot
 import unittest
 import os
