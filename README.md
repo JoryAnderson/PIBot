@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/JoryAnderson/PIBot.svg?style=svg)](https://circleci.com/gh/JoryAnderson/PIBot)
+
 __PIBot__ (or __PersonalInformationBot__) is a handy reddit bot written in Python using 
 [Python's Reddit API Wrapper (PRAW)](https://praw.readthedocs.io/en/latest/). __PIBot__ searches through 
 a subreddit, whether that may be 'all' or a specific subreddit, and is able to find users sharing 
