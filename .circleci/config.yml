@@ -14,4 +14,5 @@ jobs:
             sudo pip install praw
       - run:
           command: |
-            pipenv run python tests/PIBotTests.py
+            python3 -m unittest tests/PIBotTests.py
+
