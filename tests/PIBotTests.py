@@ -3,8 +3,7 @@ TODO: Here's a list of unit tests to create in order to prevent regression (use 
 Also: Connect to GitHub CI/CD.
 '''
 
-
-from Fun.PIBot import PIBot
+from src import PIBot
 import unittest
 import os
 import praw
