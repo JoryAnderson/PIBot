@@ -10,7 +10,7 @@ jobs:
             sudo pip install pipenv
             pipenv install
       - run:
-          - command: |
+          command: |
             sudo pip install praw
       - run:
           command: |
