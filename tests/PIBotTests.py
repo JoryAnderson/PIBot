@@ -43,6 +43,11 @@ class TestMatching(unittest.TestCase):
 		self.local_cache.close()
 		os.remove("id_blacklist.txt")
 
+	def test_no_match(self):
+		test_submission = self.reddit.submission(id='apf2nq')
+		results = PIBot.scan_text(test_submission, self.email_domains, self.email_pattern, self.phone_pattern, "submission")
+		self.assertIsNone(results)
+
 	def test_phone_match(self):
 		self.helper_scan_text(self.reddit, "comment", "e8wh8wk")
 
