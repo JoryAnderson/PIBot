@@ -11,7 +11,7 @@ jobs:
             pipenv install
       - run:
           - command: |
-              - sudo pip install praw
+            sudo pip install praw
       - run:
           command: |
             pipenv run python PIBotTests.py
