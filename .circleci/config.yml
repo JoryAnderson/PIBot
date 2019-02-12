@@ -23,4 +23,3 @@ jobs:
       - run:
           command: |
             python3 -m unittest tests/PIBotTests.py
-
