@@ -128,7 +128,8 @@ def skim(reddit, subreddit):
 	subreddit = reddit.subreddit(subreddit)  # Placeholder, production will be set to 'all'
 	email_domains = ['@gmail.com', '@hotmail.com', '@live.ca', '@yahoo.com', '@yahoo.ca', '@aol.com', '@outlook.com']
 	email_pattern = r"(\b(\w+(@\w+.[a-z]{0,3})))"
-	phone_pattern = r"(?<!\w)[1 ]?[- ]?(?!800)\(?\d{3}\)?\s?[- ]?\d{3}[- ]?\d{4}(?!\d+?)"
+	phone_pattern = \
+		r"(?!\+\d{2,3})(?<!\w)[1 ]?[- ]?(?!{800,888,877,866,855,844})\(?\d{3,4}\)?\s?[- ]?\d{3,4}[- ]?\d{3,4}(?!\d+?)"
 
 	comment_blacklist = create_local_cache("id_blacklist.txt")
 	blacklist = [x.strip() for x in comment_blacklist.readlines()]
